@@ -1,4 +1,5 @@
-public class OOPSBannerApp {
+ // UC5 implementation
+ // public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
@@ -16,4 +17,3 @@ public class OOPSBannerApp {
             System.out.println(line);
         }
     }
-}
