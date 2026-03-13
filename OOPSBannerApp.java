@@ -1,19 +1,57 @@
- // UC5 implementation
- // public class OOPSBannerApp {
+ // UC6 implementation
+ public class OOPSBannerApp {
 
+    // Pattern for letter O
+    public static String[] getOPattern() {
+        return new String[]{
+            " *** ",
+            "*   *",
+            "*   *",
+            "*   *",
+            "*   *",
+            "*   *",
+            " *** "
+        };
+    }
+
+    // Pattern for letter P
+    public static String[] getPPattern() {
+        return new String[]{
+            "**** ",
+            "*   *",
+            "*   *",
+            "**** ",
+            "*    ",
+            "*    ",
+            "*    "
+        };
+    }
+
+    // Pattern for letter S
+    public static String[] getSPattern() {
+        return new String[]{
+            " ****",
+            "*    ",
+            "*    ",
+            " *** ",
+            "    *",
+            "    *",
+            "**** "
+        };
+    }
+
+    // Main method
     public static void main(String[] args) {
 
-        String[] lines = new String[7];
+        String[] oPattern = getOPattern();
+        String[] pPattern = getPPattern();
+        String[] sPattern = getSPattern();
 
-        lines[0] = String.join(" ", " *** ", " *** ", "**** ", " ****");
-        lines[1] = String.join(" ", "*   *", "*   *", "*   *", "*    ");
-        lines[2] = String.join(" ", "*   *", "*   *", "*   *", "*    ");
-        lines[3] = String.join(" ", "*   *", "*   *", "**** ", " *** ");
-        lines[4] = String.join(" ", "*   *", "*   *", "*    ", "    *");
-        lines[5] = String.join(" ", "*   *", "*   *", "*    ", "    *");
-        lines[6] = String.join(" ", " *** ", " *** ", "*    ", "**** ");
-
-        for (String line : lines) {
-            System.out.println(line);
+        for (int i = 0; i < oPattern.length; i++) {
+            System.out.println(oPattern[i] + "  " +
+                               oPattern[i] + "  " +
+                               pPattern[i] + "  " +
+                               sPattern[i]);
         }
     }
+}
