@@ -1,98 +1,72 @@
- // UC7 implementation
- public class OOPSBannerApp {
+ // UC8 implementation
+ import java.util.HashMap;
 
-    /* Inner static class to store character and pattern */
-    static class CharacterPatternMap {
-        char character;
-        String[] pattern;
+public class OOPSBannerApp {
 
-        public CharacterPatternMap(char character, String[] pattern) {
-            this.character = character;
-            this.pattern = pattern;
-        }
+    // Create map of characters and their patterns
+    public static HashMap<Character, String[]> createCharacterMap() {
 
-        public char getCharacter() {
-            return character;
-        }
+        HashMap<Character, String[]> charMap = new HashMap<>();
 
-        public String[] getPattern() {
-            return pattern;
-        }
+        charMap.put('O', new String[]{
+                " *** ",
+                "*   *",
+                "*   *",
+                "*   *",
+                "*   *",
+                "*   *",
+                " *** "
+        });
+
+        charMap.put('P', new String[]{
+                "**** ",
+                "*   *",
+                "*   *",
+                "**** ",
+                "*    ",
+                "*    ",
+                "*    "
+        });
+
+        charMap.put('S', new String[]{
+                " ****",
+                "*    ",
+                "*    ",
+                " *** ",
+                "    *",
+                "    *",
+                "**** "
+        });
+
+        return charMap;
     }
 
-    /* Create character pattern objects */
-    public static CharacterPatternMap[] createCharacterPatternMaps() {
+    // Display banner
+    public static void displayBanner(String message, HashMap<Character, String[]> charMap) {
 
-        String[] oPattern = {
-            " *** ",
-            "*   *",
-            "*   *",
-            "*   *",
-            "*   *",
-            "*   *",
-            " *** "
-        };
+        int patternHeight = charMap.get('O').length;
 
-        String[] pPattern = {
-            "**** ",
-            "*   *",
-            "*   *",
-            "**** ",
-            "*    ",
-            "*    ",
-            "*    "
-        };
+        for (int line = 0; line < patternHeight; line++) {
 
-        String[] sPattern = {
-            " ****",
-            "*    ",
-            "*    ",
-            " *** ",
-            "    *",
-            "    *",
-            "**** "
-        };
-
-        return new CharacterPatternMap[]{
-            new CharacterPatternMap('O', oPattern),
-            new CharacterPatternMap('P', pPattern),
-            new CharacterPatternMap('S', sPattern)
-        };
-    }
-
-    /* Get pattern for a character */
-    public static String[] getCharacterPattern(char ch, CharacterPatternMap[] maps) {
-        for (CharacterPatternMap map : maps) {
-            if (map.getCharacter() == ch) {
-                return map.getPattern();
-            }
-        }
-        return new String[]{"     ","     ","     ","     ","     ","     ","     "};
-    }
-
-    /* Print banner */
-    public static void printMessage(String message, CharacterPatternMap[] maps) {
-
-        for (int i = 0; i < 7; i++) {
-
-            StringBuilder line = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             for (char ch : message.toCharArray()) {
-                String[] pattern = getCharacterPattern(ch, maps);
-                line.append(pattern[i]).append("  ");
+
+                String[] pattern = charMap.get(ch);
+
+                sb.append(pattern[line]).append("  ");
             }
 
-            System.out.println(line);
+            System.out.println(sb.toString());
         }
     }
 
-    /* Main method */
     public static void main(String[] args) {
 
-        CharacterPatternMap[] charMaps = createCharacterPatternMaps();
+        HashMap<Character, String[]> charMap = createCharacterMap();
 
         String message = "OOPS";
 
-        printMessage(message, charMaps);
+        displayBanner(message, charMap);
     }
 }
