@@ -2,8 +2,9 @@ public class HelloApp {
 
     public static void main(String[] args) {
 
-        String VAISH = (args.length > 0) ? String.join(" ", args) : "World";
+        String name = (args.length > 0) ? args[0] : "Vaish";
 
-        System.out.println("Hello, " + VAISH + "!");
+        System.out.println("Hello, " + name + "!");
     }
+
 }
