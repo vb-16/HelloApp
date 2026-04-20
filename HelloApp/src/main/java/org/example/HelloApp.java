@@ -1,8 +1,23 @@
-package HelloApp.src.main.java.org.example;
-
 public class HelloApp {
     public static void main(String[] args) {
-        String name = (args.length > 0) ? args[0] : "World";
-        System.out.println("Hello, " + name + "!");
+
+        String message;
+
+        if (args.length == 0) {
+            message = "Hello, World!";
+        } else {
+            StringBuilder names = new StringBuilder();
+
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
+
+            message = "Hello, " + names.toString() + "!";
+        }
+
+        System.out.println(message);
     }
 }
